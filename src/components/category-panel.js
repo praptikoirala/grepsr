@@ -36,7 +36,7 @@ const CategoryPanel = () => {
     };
 
     const showAllProducts = () => {
-        dispatch(setActiveCategory(null));
+        dispatch(setActiveCategory(''));
 
         setActive("all");
     };

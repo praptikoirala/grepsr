@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import { useNavigate } from "react-router-dom";
+
+import Capitalize from "../lib/capitalize";
+
+import { setActiveCategory } from "../redux/slices/category-slice";
 
 import ProductCard from "../components/product-card";
 import CategoryPanel from "../components/category-panel";
-import Capitalize from "../lib/capitalize";
 import Button from "../components/button";
-import { useNavigate } from "react-router-dom";
 
 const Products = () => {
     const [products, setProuducts] = useState("");
@@ -14,6 +18,7 @@ const Products = () => {
     const { activeCategory } = useSelector((state) => state.categories);
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         getProducts();
@@ -21,11 +26,10 @@ const Products = () => {
 
     const getProducts = async () => {
         setLoading(true);
-        // setShowChart(false);
 
         try {
             const response = await fetch(
-                activeCategory
+                activeCategory 
                     ? `https://dummyjson.com/products/category/${activeCategory}`
                     : "https://dummyjson.com/products"
             );
@@ -41,6 +45,7 @@ const Products = () => {
 
     const handleButtonClick = () => {
         navigate('/chart')
+        dispatch(setActiveCategory(''))
     };
 
     return (
