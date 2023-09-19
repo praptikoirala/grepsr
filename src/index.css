@@ -1,13 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
+
+/* Track */ 
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} 
+
+@layer components {
+  .btn {
+    @apply py-1 rounded bg-grey-dark text-white text-center hover:bg-grey-light hover:cursor-pointer 
+  }
+
+  .heading-lg {
+     @apply text-4xl flex items-center
+  }
+
+  .heading-sm {
+    @apply text-grey-light text-2xl font-bold
+  }
+
+  .heading-sm-dark {
+    @apply text-black text-2xl font-bold
+  }
+
+  .header-sec {
+      @apply flex flex-col items-center mt-5
+  }
+
+  .form-sec {
+    @apply flex justify-center mt-5
+  }
+
+  .product-container {
+    @apply w-full py-3 px-5
+  }
+
+  .product-card{
+    @apply bg-grey rounded-lg w-72 h-fit
+  }
+
+  .thumbnail{
+    @apply w-full h-56
+  }
+
+  .category{
+    @apply w-44 py-2 px-3 rounded-full flex items-center justify-center hover:cursor-pointer hover:bg-grey-dark hover:text-white
+  }
+}
+
