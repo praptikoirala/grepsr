@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate} from 'react-router-dom'
 
 import { FaSignInAlt } from 'react-icons/fa'
 
@@ -15,8 +15,18 @@ const Homepage = () => {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
 
+  const { authUser } = useSelector((state) => state.user)
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  useEffect(() => {
+    if(authUser){
+      navigate('/products')
+    }
+  }, [authUser])
+
+
 
   const handleFormSubmit = async () => {
     setError('')
@@ -65,7 +75,7 @@ const Homepage = () => {
         <Form onSubmit={handleFormSubmit}>
           <FormGroup type="text" placeholder="your username" value={username} onChange={setUsername}/>
           <FormGroup type="password" placeholder="your password" value={password} onChange={setPassword}/>
-          <p>{error}</p>
+          <p className='text-red-500 text-center text-sm'>{error}</p>
           <Button type='primary'>Submit</Button>
         </Form>
       </section>

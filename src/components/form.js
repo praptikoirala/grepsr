@@ -8,7 +8,7 @@ const Form = ({ children, onSubmit }) => {
   }
 
   return (
-    <form className='flex flex-col space-y-3' onSubmit={handleFormSubmit} >
+    <form className='flex flex-col space-y-3 w-68 px-3' onSubmit={handleFormSubmit} >
       {children}
     </form>
   )

@@ -11,7 +11,7 @@ const FormGroup = ({type, placeholder, value, onChange}) => {
             placeholder={placeholder} 
             value={value} 
             onChange={handleInputChange}
-            className='w-72 py-1 px-3 outline-none border border-grey-light rounded-sm focus:border-grey-dark'
+            className='py-1 px-3 outline-none border border-grey-light rounded-sm focus:border-grey-dark'
         />
     )
 }

@@ -1,22 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const categorySlice = createSlice({
-    name: 'category',
+    name: "category",
     initialState: {
         activeCategory: null,
         category: [],
-        categoryCount: []
+        categoryCount: [],
     },
     reducers: {
         setActiveCategory: (state, action) => {
-            state.activeCategory = action.payload
+            state.activeCategory = action.payload;
         },
         setCategoryCount: (state, action) => {
-            state.category.push(action.payload.key)
-            state.categoryCount.push(action.payload.count)
-        }
-    }
-})
+            const { key, count } = action.payload;
 
-export default categorySlice.reducer
-export const { setActiveCategory, setCategoryCount } = categorySlice.actions
+            const existingCountObj = state.categoryCount.find(
+                (countObj) => countObj.key === key
+            );
+
+            if (existingCountObj) {
+                return;
+            }
+
+            state.categoryCount.push({ key, count });
+        },
+    },
+});
+
+export default categorySlice.reducer;
+export const { setActiveCategory, setCategoryCount } = categorySlice.actions;

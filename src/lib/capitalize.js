@@ -1,10 +1,14 @@
 const Capitalize = (string) => {
-    const firstLetter = string[0].toUpperCase()
-    const remainingStr = string.slice(1)
+    if (!string) {
+        return "";
+    }
 
-    const capitalizedStr = firstLetter + remainingStr
-    
-    return ( capitalizedStr )
-}
+    const firstLetter = string[0].toUpperCase();
+    const remainingStr = string.slice(1);
 
-export default Capitalize
+    const capitalizedStr = firstLetter + remainingStr;
+
+    return capitalizedStr;
+};
+
+export default Capitalize;
