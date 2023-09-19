@@ -107,7 +107,7 @@ const ProductDetails = () => {
                         </p>
                     </div>
 
-                    <div className="bg-gray-100 h-fit p-5 rounded-lg w-96">
+                    <div className="bg-grey h-fit p-5 rounded-lg w-96">
                         <p className="text-grey-dark text-sm mb-2">
                             Description
                         </p>
